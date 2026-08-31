@@ -50,12 +50,30 @@ The service-related variables were excluded to reduce structural redundancy and 
 
 Recommended model:
 
+The **GAM (Generalized Additive Model)** is the recommended model for predicting customer churn because it achieved the strongest performance, with **accuracy = 0.799, F1 = 0.587, and ROC-AUC = 0.842**.
+
 Why this model:
+
+GAM provides a good balance between **performance and interpretability**. It can capture nonlinear relationships between predictors such as `tenure`, `MonthlyCharges`, and `TotalCharges` while allowing these relationships to be visualized through smooth-effect plots.
+
 
 What the company can responsibly conclude:
 
+The results suggest that factors such as **contract type, tenure, payment method, and customer services** are associated with churn risk. These patterns can help identify higher-risk customer segments and inform retention strategies.
+
 What the company should not conclude yet:
+The results show **associations, not causation**. The model should not be used to conclude that changing a specific customer characteristic will directly prevent churn. Further validation is also needed before making automated customer-level decisions.
 
 One next analysis we would run:
+We would perform **cross-validation and fairness analysis** to evaluate model reliability and determine whether performance differs across customer groups.
 
 
+## AI and External Resources Disclosure
+
+Chatgpt was used to assist with portions of the Python code, and debugging which were all reviewed, tested, and adapted by the project team.
+
+The team also referenced the Duke AIPI-590-XAI regression interpretability and eneralized-models interpretability example notebook for guidance on regression modeling and interpretability:
+
+[AIPI-590-XAI Regression Interpretability Notebook](https://github.com/AIPI-590-XAI/Duke-AI-XAI/blob/main/interpretable-ml-example-notebooks/regression-interpretability.ipynb)
+
+[AIPI-590-XAI Generalized Linear Model Notebook](https://github.com/AIPI-590-XAI/Duke-AI-XAI/blob/main/interpretable-ml-example-notebooks/generalized-models-interpretability.ipynb)
