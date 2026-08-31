@@ -15,7 +15,7 @@ The Telco Customer Churn dataset contains customer-level data and the task is to
 |---|---|---|---|
 | **Linear regression** | Linearity, multicollinearity, independence, homoscedasticity, normality, and influential observations | Correlation matrix and VIF were used to assess multicollinearity. VIF(`tenure`) = **6.33** and VIF(`TotalCharges`) = **8.09**. Observations were treated as independent. Homoscedasticity, normality of residuals, and influential observations were assessed after model fitting. | **Moderate/high multicollinearity** between `tenure` and `TotalCharges`. Additionally, the binary churn outcome is a limitation of OLS. |
 | Logistic regression | Binary outcome, sufficient sample size, independence of observations, multicollinearity | Values of outcome variable, value counts of each variable, Durbin-Watson test, correlation matrix | Total charges has high multicollinearity with tenure (0.825880), also linear log-odds is not checked. |
-| GAM |  |  |  |
+| GAM | Binary outcome, independence of observations, additive structure, appropriate smooth functions for continuous predictors, multicollinearity | Churn is binary; customer IDs are unique; EDA identified tenure, MonthlyCharges, and TotalCharges as candidates for smooth terms; GAM explicitly models these using s() terms | Concern: tenure and TotalCharges remain highly correlated, making their individual effects harder to interpret. GAM also assumes additive effects unless interactions are explicitly included. |
 
 ## Model Comparison
 
@@ -23,7 +23,7 @@ The Telco Customer Churn dataset contains customer-level data and the task is to
 |---|---|---|---|
 | **Linear regression** | R² = **0.276**, Adjusted R² = **0.274**, F-statistic = **157.0**, p < **0.001** | Coefficients are straightforward to interpret as changes in predicted churn probability, making individual predictor effects easy to communicate. | OLS is not ideal for a binary outcome and may produce predictions outside the [0, 1] probability range. Multicollinearity between `tenure` and `TotalCharges` also complicates coefficient interpretation. |
 | Logistic regression |  |  |  |
-| GAM |  |  |  |
+| GAM | Accuracy = 0.799, Precision = 0.646, Recall = 0.537, F1 = 0.587, ROC-AUC = 0.842 | Strong interpretability through partial-dependence/smooth-effect plots; can show how churn risk changes across tenure, MonthlyCharges, and TotalCharges | Smooth effects are less straightforward than individual logistic coefficients; correlated predictors make individual effects harder to isolate; additive structure does not automatically capture interactions |
 
 
 
