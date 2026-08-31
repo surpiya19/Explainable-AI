@@ -14,7 +14,7 @@ The Telco Customer Churn dataset contains customer-level data and the task is to
 | Model | Key Assumptions Checked | Evidence | Concern |
 |---|---|---|---|
 | Linear regression |  |  |  |
-| Logistic regression |  |  |  |
+| Logistic regression | Binary outcome, sufficient sample size, independence of observations, multicollinearity | Values of outcome variable, value counts of each variable, Durbin-Watson test, correlation matrix | Total charges has high multicollinearity with tenure (0.825880), also linear log-odds is not checked. |
 | GAM |  |  |  |
 
 ## Model Comparison
